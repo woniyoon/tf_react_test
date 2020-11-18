@@ -24,6 +24,7 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
+    margin: 0;
 }
 
 .formDescription {
@@ -34,6 +35,7 @@
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
+    margin: 12px 0 29px 0;
 }
 
 .inputsLabel {
@@ -54,6 +56,33 @@ p {
 .inputText, .inputSelect {
     width: 440px;
     height: 55px;
+}
+
+.memberType {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.MuiFormControlLabel-root {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.PrivateSwitchBase-root-2 {
+    margin: 0 5px 0 0 !important; 
+    padding: 0 !important;
+}
+
+.typeOption {
+    width: 60px;
+    font-size: 14px;
+    margin: 0 5px 0 0;
+}
+
+.selectedRadio {
+    font-weight: bold;
 }
 
 .nextBtn {

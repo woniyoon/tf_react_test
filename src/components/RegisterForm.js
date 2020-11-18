@@ -13,7 +13,7 @@ const RegisterForm = () => {
     const [companyName, setCompanyName] = useState("");
     const [foundedYear, setFoundedYear] = useState(0);
 
-    const handleMemTypeChange = (event) => {
+    const handleMemberTypeChange = (event) => {
         setMemberType(event.target.value);
     }
 
@@ -45,22 +45,22 @@ const RegisterForm = () => {
                 <p className="formDescription">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
                 
                 <FormControl component="fieldset" >
-                    <RadioGroup row name="memberType" value={memberType} onChange={handleMemTypeChange} >
+                    <RadioGroup row className="memberType" name="memberType" value={memberType} onChange={handleMemberTypeChange} >
                         <FormControlLabel 
                             value="company" 
-                            control={<CustomRadio /> } 
-                            label="번역회사" 
+                            control={<CustomRadio id="company" /> } 
                         />
+                        <label htmlFor="company" className="typeOption">번역회사</label>
                         <FormControlLabel 
                             value="client" 
-                            control={<CustomRadio />} 
-                            label="의뢰인"
+                            control={<CustomRadio id="client" />} 
                         />
+                        <label htmlFor="client" className="typeOption">의뢰인</label>
                         <FormControlLabel 
                             value="individual" 
-                            control={<CustomRadio />} 
-                            label="번역가" 
+                            control={<CustomRadio id="individual" name="individual" />} 
                         />
+                        <label htmlFor="individual" className="typeOption">번역가</label>
                     </RadioGroup>
                 </FormControl>
 
