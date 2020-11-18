@@ -6,3 +6,24 @@
     border: 1px solid #dadce0;
     border-radius: 11px;
 }
+
+.formTitle {
+    color: #2f2f2f;
+    font-size: 24px;
+    font-family: Arial-BoldMT;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.formDescription {
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
