@@ -34,8 +34,11 @@ const RegisterForm = () => {
                 <p className="inputsLabel">기본정보 입력</p>
                 <section className="textInputSection">
                     <TextField className="inputText" label="이메일(아이디)를 입력하세요." variant="outlined" />
+                    <p className="inputDescription">이메일 양식을 확인하세요</p>
                     <TextField className="inputText" label="비밀번호를 입력하세요." variant="outlined" />
+                    <p className="inputDescription">비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다</p>
                     <TextField className="inputText" label="회사명을 입력하세요." variant="outlined" />
+                    <p className="inputDescription">유효한 회사명을 입력해주세요</p>
                 </section>
                 <section className="selectInputSection">
                     <Select
@@ -49,6 +52,7 @@ const RegisterForm = () => {
                         <MenuItem value="krw">Korean Won</MenuItem>
                         <MenuItem value="usd">US Dollar</MenuItem>
                     </Select>
+                    <p className="inputDescription">필수 입력사항입니다.</p>
                     <Select
                         className="inputSelect"
                         displayEmpty
@@ -60,6 +64,7 @@ const RegisterForm = () => {
                         <MenuItem value="krw">Korean Won</MenuItem>
                         <MenuItem value="usd">US Dollar</MenuItem>
                     </Select>
+                    <p className="inputDescription">필수 입력사항입니다.</p>
                 </section>
                 <section>
                     <CustomButton className="nextBtn">다음</CustomButton>
