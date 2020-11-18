@@ -87,29 +87,32 @@ const RegisterForm = () => {
                     <p className="inputDescription">유효한 회사명을 입력해주세요</p>
                 </section>
                 <section className="selectInputSection">
-                    <Select
-                        className="inputSelect"
-                        displayEmpty
-                        inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                        <MenuItem disabled>
-                            <p>화폐단위를 선택하세요.</p>
-                        </MenuItem>
-                        <MenuItem value="krw">Korean Won</MenuItem>
-                        <MenuItem value="usd">US Dollar</MenuItem>
-                    </Select>
+                    <FormControl variant="outlined" >
+                        <InputLabel>화폐단위를 선택하세요.</InputLabel>
+                        <Select
+                            className="inputSelect"
+                            displayEmpty
+                            inputProps={{ 'aria-label': 'Without label' }}
+                            label="화폐단위를 선택하세요."
+                            >
+                            <MenuItem value="krw">Korean Won</MenuItem>
+                            <MenuItem value="usd">US Dollar</MenuItem>
+                        </Select>
+                    </FormControl>
                     <p className="inputDescription">필수 입력사항입니다.</p>
-                    <Select
-                        className="inputSelect"
-                        displayEmpty
-                        inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                        <MenuItem disabled>
-                            <p>설립일을 선택하세요.</p>
-                        </MenuItem>
-                        <MenuItem value="krw">Korean Won</MenuItem>
-                        <MenuItem value="usd">US Dollar</MenuItem>
-                    </Select>
+                
+                    <FormControl variant="outlined" >
+                        <InputLabel>설립일을 선택하세요.</InputLabel>
+                        <Select
+                            className="inputSelect"
+                            displayEmpty
+                            inputProps={{ 'aria-label': 'Without label' }}
+                            label="설립일을 선택하세요."
+                        >
+                            <MenuItem value="krw">Korean Won</MenuItem>
+                            <MenuItem value="usd">US Dollar</MenuItem>
+                        </Select>
+                    </FormControl>
                     <p className="inputDescription">필수 입력사항입니다.</p>
                 </section>
                 <section>
