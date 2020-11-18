@@ -31,7 +31,7 @@ const RegisterForm = () => {
                     </RadioGroup>
                 </FormControl>
 
-                <p>기본정보 입력</p>
+                <p className="inputsLabel">기본정보 입력</p>
                 <section className="textInputSection">
                     <TextField className="inputText" label="이메일(아이디)를 입력하세요." variant="outlined" />
                     <TextField className="inputText" label="비밀번호를 입력하세요." variant="outlined" />
