@@ -72,6 +72,7 @@ const RegisterForm = () => {
                 </section>
             </form>
             <Select
+                className="languageSelect"
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
                 defaultValue="kor"
