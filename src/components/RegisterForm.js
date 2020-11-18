@@ -1,18 +1,25 @@
 import React from "react";
+import { useState } from "react";
 import "./registerForm.css";
 import { FormControl, RadioGroup, FormControlLabel, Radio, withStyles, TextField, Select, MenuItem, InputLabel, Button } from "@material-ui/core/";
-import CustomRadio from "./customRadio";
-import CustomButton from "./customButton";
+import CustomRadio from "./CustomRadio";
+import CustomButton from "./CustomButton";
 
 const RegisterForm = () => {
+    const [memberType, setMemberType] = useState("company");
+
+    const handleMemTypeChange = (event) => {
+        setMemberType(event.target.value);
+    }
+
     return (
         <div className="registerPage">
             <form className="registerForm">
-                <text className="formTitle">Gconstudio 계정 만들기</text>
+                <p className="formTitle">Gconstudio 계정 만들기</p>
                 <p className="formDescription">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
                 
                 <FormControl component="fieldset" >
-                    <RadioGroup row aria-label="memberType" name="memberType" >
+                    <RadioGroup row name="memberType" value={memberType} onChange={handleMemTypeChange} >
                         <FormControlLabel 
                             value="company" 
                             control={<CustomRadio /> } 
