@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import RegisterForm from "./components/RegisterForm";
+import RegisterForm from "./components/registerForm";
 
 ReactDOM.render(
   <React.StrictMode>
