@@ -4,12 +4,14 @@ import "./registerForm.css";
 import { FormControl, RadioGroup, FormControlLabel, Radio, withStyles, TextField, Select, MenuItem, InputLabel, Button } from "@material-ui/core/";
 import CustomRadio from "./CustomRadio";
 import CustomButton from "./CustomButton";
+import FoundedYearSelect from "./FoundedYearSelect";
 
 const RegisterForm = () => {
     const [memberType, setMemberType] = useState("company");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [companyName, setCompanyName] = useState("");
+    const [foundedYear, setFoundedYear] = useState(0);
 
     const handleMemTypeChange = (event) => {
         setMemberType(event.target.value);
@@ -30,6 +32,11 @@ const RegisterForm = () => {
                 break;
         }
     }
+
+    const selectFoundedYear = (event) => {
+        setFoundedYear(event.target.value);
+    } 
+
 
     return (
         <div className="registerPage">
@@ -101,18 +108,7 @@ const RegisterForm = () => {
                     </FormControl>
                     <p className="inputDescription">필수 입력사항입니다.</p>
                 
-                    <FormControl variant="outlined" >
-                        <InputLabel>설립일을 선택하세요.</InputLabel>
-                        <Select
-                            className="inputSelect"
-                            displayEmpty
-                            inputProps={{ 'aria-label': 'Without label' }}
-                            label="설립일을 선택하세요."
-                        >
-                            <MenuItem value="krw">Korean Won</MenuItem>
-                            <MenuItem value="usd">US Dollar</MenuItem>
-                        </Select>
-                    </FormControl>
+                    <FoundedYearSelect onChange={selectFoundedYear}/>
                     <p className="inputDescription">필수 입력사항입니다.</p>
                 </section>
                 <section>
