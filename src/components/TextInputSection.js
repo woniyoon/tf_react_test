@@ -42,6 +42,7 @@ const TextInputSection = (props) => {
                     label="이메일(아이디)를 입력하세요." 
                     variant="outlined" 
                     type="email"
+                    autoComplete="email"
                     error={!isEmailValid}
                     onBlur={e => validateEmail(e)}
                     />
@@ -52,6 +53,7 @@ const TextInputSection = (props) => {
                     label="비밀번호를 입력하세요." 
                     variant="outlined" 
                     type="password"
+                    autoComplete="password"
                     error={!isPasswordValid}
                     onBlur={e => validatePassword(e)}
                     />
