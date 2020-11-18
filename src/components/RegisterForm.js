@@ -5,6 +5,7 @@ import { FormControl, RadioGroup, FormControlLabel, Radio, withStyles, TextField
 import CustomRadio from "./CustomRadio";
 import CustomButton from "./CustomButton";
 import FoundedYearSelect from "./FoundedYearSelect";
+import TextInputSection from "./TextInputSection";
 
 const RegisterForm = () => {
     const [memberType, setMemberType] = useState("company");
@@ -37,6 +38,12 @@ const RegisterForm = () => {
         setFoundedYear(event.target.value);
     } 
 
+    const printResult = () => {
+        console.log(email);
+        console.log(password);
+        console.log(companyName);
+    }
+
 
     return (
         <div className="registerPage">
@@ -58,41 +65,12 @@ const RegisterForm = () => {
                         <label htmlFor="client" className="typeOption">의뢰인</label>
                         <FormControlLabel 
                             value="individual" 
-                            control={<CustomRadio id="individual" name="individual" />} 
+                            control={<CustomRadio id="individual" />} 
                         />
                         <label htmlFor="individual" className="typeOption">번역가</label>
                     </RadioGroup>
                 </FormControl>
-
-                <p className="inputsLabel">기본정보 입력</p>
-                <section className="textInputSection">
-                    <TextField 
-                        className="inputText" 
-                        id="email"
-                        label="이메일(아이디)를 입력하세요." 
-                        variant="outlined" 
-                        type="email"
-                        onChange={handleTextInput} 
-                    />
-                    <p className="inputDescription">이메일 양식을 확인하세요</p>
-                    <TextField 
-                        className="inputText" 
-                        id="password"
-                        label="비밀번호를 입력하세요." 
-                        variant="outlined" 
-                        type="password"
-                        onChange={handleTextInput} 
-                    />
-                    <p className="inputDescription">비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다</p>
-                    <TextField 
-                        className="inputText" 
-                        id="companyName"
-                        label="회사명을 입력하세요." 
-                        variant="outlined" 
-                        onChange={handleTextInput}
-                    />
-                    <p className="inputDescription">유효한 회사명을 입력해주세요</p>
-                </section>
+                <TextInputSection onChange={handleTextInput} />
                 <section className="selectInputSection">
                     <FormControl variant="outlined" >
                         <InputLabel>화폐단위를 선택하세요.</InputLabel>
@@ -112,7 +90,7 @@ const RegisterForm = () => {
                     <p className="inputDescription">필수 입력사항입니다.</p>
                 </section>
                 <section>
-                    <CustomButton className="nextBtn">다음</CustomButton>
+                    <CustomButton className="nextBtn" onClick={printResult}>다음</CustomButton>
                     <a className="loginLink">로그인</a>
                 </section>
             </form>
