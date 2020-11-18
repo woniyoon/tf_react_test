@@ -27,3 +27,13 @@
     line-height: normal;
     letter-spacing: normal;
 }
+
+.inputText, .inputSelect {
+    width: 440px;
+    height: 55px;
+}
+
+.nextBtn {
+    width: 91px;
+    height: 37px;
+}
