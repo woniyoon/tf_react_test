@@ -1,9 +1,18 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 
+const generateYears = () => {
+    let yearArr = [];
+
+    for(let i=2000; i<=2020; i++) {
+        yearArr.push(
+            <MenuItem key={`year${i}`} value={i}>{i}</MenuItem>
+        );
+    }
+
+    return yearArr;
+}
+
 const FoundedYearSelect = (props) => {
-
-    console.log(props);
-
 
     return (
         <FormControl variant="outlined" >
@@ -15,8 +24,9 @@ const FoundedYearSelect = (props) => {
                 label="설립일을 선택하세요."
                 onChange={props.onChange}
             >
-                <MenuItem value={1}>Korean Won</MenuItem>
-                <MenuItem value={2}>US Dollar</MenuItem>
+                {generateYears()}
+                {/* <MenuItem value={1}>Korean Won</MenuItem>
+                <MenuItem value={2}>US Dollar</MenuItem> */}
             </Select>
         </FormControl>
     );
