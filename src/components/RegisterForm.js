@@ -77,11 +77,11 @@ const RegisterForm = () => {
                         <Select
                             className="inputSelect"
                             displayEmpty
-                            inputProps={{ 'aria-label': 'Without label' }}
                             label="화폐단위를 선택하세요."
-                            >
-                            <MenuItem value="krw">Korean Won</MenuItem>
-                            <MenuItem value="usd">US Dollar</MenuItem>
+                            defaultValue="krw"
+                        >
+                            <MenuItem value="krw">대한민국 원(₩)</MenuItem>
+                            <MenuItem value="usd">미국 달러($)</MenuItem>
                         </Select>
                     </FormControl>
                     <p className="inputDescription">필수 입력사항입니다.</p>
