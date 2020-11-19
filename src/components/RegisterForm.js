@@ -12,7 +12,7 @@ const RegisterForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [companyName, setCompanyName] = useState("");
-    const [foundedYear, setFoundedYear] = useState(0);
+    const [foundedYear, setFoundedYear] = useState(2020);
 
     const handleMemberTypeChange = (event) => {
         setMemberType(event.target.value);
@@ -97,7 +97,7 @@ const RegisterForm = () => {
             <Select
                 className="languageSelect"
                 displayEmpty
-                inputProps={{ 'aria-label': 'Without label' }}
+                // inputProps={{ 'aria-label': 'Without label' }}
                 defaultValue="kor"
             >
                 <MenuItem value="kor">한국어</MenuItem>
