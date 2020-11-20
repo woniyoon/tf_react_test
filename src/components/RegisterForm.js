@@ -15,7 +15,7 @@ const RegisterForm = ({t, i18n}) => {
     const [companyName, setCompanyName] = useState("");
     const [currency, setCurrency] = useState("krw");
     const [foundedYear, setFoundedYear] = useState(2020);
-    const [selectedRadio, setSelectedRadio] = useState({
+    const [radio, setRadio] = useState({
         companySelected: true,
         clientSelected: false,
         individualSelected: false,
@@ -30,7 +30,7 @@ const RegisterForm = ({t, i18n}) => {
         // 라디오버튼의 라벨을 bold 처리하기 위해 boolean값 전달
         switch (value) {
             case "company":
-                setSelectedRadio({
+                setRadio({
                     companySelected: true,
                     clientSelected: false,
                     individualSelected: false,
@@ -38,7 +38,7 @@ const RegisterForm = ({t, i18n}) => {
                 break;
 
                 case "client":
-                setSelectedRadio({
+                setRadio({
                     companySelected: false,
                     clientSelected: true,
                     individualSelected: false,
@@ -46,7 +46,7 @@ const RegisterForm = ({t, i18n}) => {
                 break;
 
             case "individual":
-                setSelectedRadio({
+                setRadio({
                     companySelected: false,
                     clientSelected: false,
                     individualSelected: true,
@@ -107,9 +107,9 @@ const RegisterForm = ({t, i18n}) => {
                         value={memberType} 
                         onChange={handleMemberTypeChange} 
                     >
-                        <RadioButton type="company" value={t("company")} isSelected={selectedRadio.companySelected}/>
-                        <RadioButton type="client" value={t("client")} isSelected={selectedRadio.clientSelected}/>
-                        <RadioButton type="individual" value={t("individual")} isSelected={selectedRadio.individualSelected} />
+                        <RadioButton type="company" value={t("company")} isSelected={radio.companySelected}/>
+                        <RadioButton type="client" value={t("client")} isSelected={radio.clientSelected}/>
+                        <RadioButton type="individual" value={t("individual")} isSelected={radio.individualSelected} />
                     </RadioGroup>
                 </FormControl>
                 <TextInputSection onChange={handleTextInput} t={t} />
