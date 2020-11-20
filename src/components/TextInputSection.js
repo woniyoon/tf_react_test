@@ -7,6 +7,7 @@ const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]
 const TextInputSection = (props) => {
     const [isEmailValid, setEmailValid] = useState(true);
     const [isPasswordValid, setPasswordValid] = useState(true);
+    const [isFilledOut, setFilledOut] = useState(true);
     const { onChange } = props;
     
     const validateEmail = (event) => {
@@ -32,42 +33,52 @@ const TextInputSection = (props) => {
         }
     }
 
+    const checkName = (event) => {
+        const companyName = event.target.value.trim();
+        const isValid = companyName !== "" ? true : false;
+
+        console.log(isValid);
+        setFilledOut(isValid);
+
+        if(isValid) {
+            onChange(event);
+        }
+    }
+
     return (
-        <>
+        <section className="textInputSection">
             <p className="inputsLabel">기본정보 입력</p>
-            <section className="textInputSection">
-                <TextField 
-                    className="inputText" 
-                    id="email"
-                    label="이메일(아이디)를 입력하세요." 
-                    variant="outlined" 
-                    type="email"
-                    autoComplete="email"
-                    error={!isEmailValid}
-                    onBlur={e => validateEmail(e)}
-                    />
-                <p className="inputDescription">이메일 양식을 확인하세요</p>
-                <TextField 
-                    className="inputText" 
-                    id="password"
-                    label="비밀번호를 입력하세요." 
-                    variant="outlined" 
-                    type="password"
-                    autoComplete="password"
-                    error={!isPasswordValid}
-                    onBlur={e => validatePassword(e)}
-                    />
-                <p className="inputDescription">비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다</p>
-                <TextField 
-                    className="inputText" 
-                    id="companyName"
-                    label="회사명을 입력하세요." 
-                    variant="outlined" 
-                    onBlur={onChange}
+            <TextField 
+                className="inputText" 
+                id="email"
+                label="이메일(아이디)를 입력하세요." 
+                variant="outlined" 
+                type="email"
+                autoComplete="email"
+                error={!isEmailValid}
+                onBlur={e => validateEmail(e)}
                 />
-                <p className="inputDescription">유효한 회사명을 입력해주세요</p>
-            </section>
-        </>
+            <p className="inputDescription">{ isEmailValid ? null : "이메일 양식을 확인하세요" } </p>
+            <TextField 
+                className="inputText" 
+                id="password"
+                label="비밀번호를 입력하세요." 
+                variant="outlined" 
+                type="password"
+                autoComplete="password"
+                error={!isPasswordValid}
+                onBlur={e => validatePassword(e)}
+                />
+            <p className="inputDescription">{ isPasswordValid ? null : "비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다" } </p>
+            <TextField 
+                className="inputText" 
+                id="companyName"
+                label="회사명을 입력하세요." 
+                variant="outlined" 
+                onBlur={e => checkName(e)}
+            />
+            <p className="inputDescription">{ isFilledOut ? null : "유효한 회사명을 입력해주세요" } </p>
+        </section>
     );
 }
 
