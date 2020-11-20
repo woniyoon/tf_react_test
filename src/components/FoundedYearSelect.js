@@ -17,7 +17,7 @@ const generateYears = () => {
 const FoundedYearSelect = (props) => {
 
     return (
-        <FormControl variant="outlined" >
+        <FormControl className="foundedYearSelect" variant="outlined" >
             <InputLabel>설립일을 선택하세요.</InputLabel>
             <Select
                 className="inputSelect"
@@ -27,8 +27,6 @@ const FoundedYearSelect = (props) => {
                 defaultValue={currentYear}
             >
                 {generateYears()}
-                {/* <MenuItem value={1}>Korean Won</MenuItem>
-                <MenuItem value={2}>US Dollar</MenuItem> */}
             </Select>
         </FormControl>
     );
