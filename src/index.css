@@ -21,3 +21,8 @@ code {
   font-family: "NotoSansCJKkr-Regular";
   src: url("./fonts/NotoSansCJKkr-Regular.otf");
 }
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("./fonts/Roboto-Regular.ttf");
+}
