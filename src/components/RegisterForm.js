@@ -13,6 +13,7 @@ const RegisterForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [companyName, setCompanyName] = useState("");
+    const [currency, setCurrency] = useState("krw");
     const [foundedYear, setFoundedYear] = useState(2020);
     const [selectedRadio, setSelectedRadio] = useState({
         companySelected: true,
@@ -69,11 +70,16 @@ const RegisterForm = () => {
         }
     }
 
+    const selectCurrency = (event) => {
+        setCurrency(event.target.value);
+    }
+
     const selectFoundedYear = (event) => {
         setFoundedYear(event.target.value);
     } 
 
     const handleNextButtonClicked = () => {
+        console.log(currency);
         console.log("next button clicked!");
     }
 
@@ -92,13 +98,17 @@ const RegisterForm = () => {
                 </FormControl>
                 <TextInputSection onChange={handleTextInput} />
                 <section className="selectInputSection">
-                    <FormControl className="currencySelect" variant="outlined" >
+                    <FormControl 
+                        className="currencySelect" 
+                        variant="outlined" 
+                        >
                         <InputLabel>화폐단위를 선택하세요.</InputLabel>
                         <Select
                             className="inputSelect"
                             displayEmpty
                             label="화폐단위를 선택하세요."
                             defaultValue="krw"
+                            onChange={selectCurrency} 
                         >
                             <MenuItem value="krw">대한민국 원(₩)</MenuItem>
                             <MenuItem value="usd">미국 달러($)</MenuItem>
