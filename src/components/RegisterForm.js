@@ -20,12 +20,13 @@ const RegisterForm = () => {
         individualSelected: false,
     });
 
-
+    // 라디오버튼 클릭 이벤트
     const handleMemberTypeChange = (event) => {
         const { value } = event.target; 
 
         setMemberType(value);
         
+        // 라디오버튼의 라벨을 bold 처리하기 위해 boolean값 전달
         switch (value) {
             case "company":
                 setSelectedRadio({
@@ -53,6 +54,7 @@ const RegisterForm = () => {
         }
     }
 
+    // TextInput값을 state에 저장
     const handleTextInput = (event) => {
         const { value, id } = event.target;
 
@@ -69,14 +71,17 @@ const RegisterForm = () => {
         }
     }
 
+    // 화폐단위를 state에 저장
     const selectCurrency = (event) => {
         setCurrency(event.target.value);
     }
 
+    // 설립연도를 state에 저장
     const selectFoundedYear = (event) => {
         setFoundedYear(event.target.value);
     } 
 
+    // 다음 버튼 클릭 이벤트
     const handleNextButtonClicked = () => {
 
         if(email.trim() !== "" && password.trim() !== "" && companyName.trim() !== "") {
@@ -94,7 +99,13 @@ const RegisterForm = () => {
                 <p className="formTitle">Gconstudio 계정 만들기</p>
                 <p className="formDetail">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
                 <FormControl component="fieldset" >
-                    <RadioGroup row className="memberType" name="memberType" value={memberType} onChange={handleMemberTypeChange} >
+                    <RadioGroup 
+                        row 
+                        className="memberType" 
+                        name="memberType" 
+                        value={memberType} 
+                        onChange={handleMemberTypeChange} 
+                    >
                         <RadioButton type="company" value="번역회사" isSelected={selectedRadio.companySelected}/>
                         <RadioButton type="client" value="의뢰인" isSelected={selectedRadio.clientSelected}/>
                         <RadioButton type="individual" value="번역가" isSelected={selectedRadio.individualSelected} />

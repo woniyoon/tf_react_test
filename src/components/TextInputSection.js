@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField } from "@material-ui/core";
 
+// 유효성 검사를 위한 이메일&패스워드 정규표현식
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
@@ -8,8 +9,10 @@ const TextInputSection = (props) => {
     const [isEmailValid, setEmailValid] = useState(true);
     const [isPasswordValid, setPasswordValid] = useState(true);
     const [isFilledOut, setFilledOut] = useState(true);
+
     const { onChange } = props;
     
+    // 이메일 유효성 검사
     const validateEmail = (event) => {
         const email = event.target.value;
         const isValid = emailRegex.test(String(email).toLowerCase());
@@ -22,6 +25,7 @@ const TextInputSection = (props) => {
         
     }
     
+    // 패스워드 유효성 검사
     const validatePassword = (event) => {
         const password = event.target.value;
         const isValid = passwordRegex.test(String(password));
@@ -33,6 +37,7 @@ const TextInputSection = (props) => {
         }
     }
 
+    // 회사명 유효성 검사
     const checkName = (event) => {
         const companyName = event.target.value.trim();
         const isValid = companyName !== "" ? true : false;
