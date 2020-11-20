@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./registerForm.css";
-import { FormControl, RadioGroup, FormControlLabel, Select, MenuItem, InputLabel } from "@material-ui/core/";
-import CustomRadio from "./CustomRadio";
+import { FormControl, RadioGroup, Select, MenuItem, InputLabel } from "@material-ui/core/";
 import CustomButton from "./CustomButton";
 import FoundedYearSelect from "./FoundedYearSelect";
 import TextInputSection from "./TextInputSection";
