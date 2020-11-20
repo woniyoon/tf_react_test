@@ -6,8 +6,9 @@ import CustomButton from "./CustomButton";
 import FoundedYearSelect from "./FoundedYearSelect";
 import TextInputSection from "./TextInputSection";
 import RadioButton from "./RadioButton";
+import { withTranslation } from "react-i18next";
 
-const RegisterForm = () => {
+const RegisterForm = ({t, i18n}) => {
     const [memberType, setMemberType] = useState("company");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -87,7 +88,7 @@ const RegisterForm = () => {
         if(email.trim() !== "" && password.trim() !== "" && companyName.trim() !== "") {
             console.log("next button clicked!");
         } else {
-            alert("모두 기입해주세요.");
+            alert(t("emptyAlert"));
         }
 
     }
@@ -96,8 +97,8 @@ const RegisterForm = () => {
     return (
         <div className="registerPage">
             <form className="registerForm">
-                <p className="formTitle">Gconstudio 계정 만들기</p>
-                <p className="formDetail">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
+                <p className="formTitle">{t("formTitle")}</p>
+                <p className="formDetail">{t("formDetail")}</p>
                 <FormControl component="fieldset" >
                     <RadioGroup 
                         row 
@@ -106,43 +107,48 @@ const RegisterForm = () => {
                         value={memberType} 
                         onChange={handleMemberTypeChange} 
                     >
-                        <RadioButton type="company" value="번역회사" isSelected={selectedRadio.companySelected}/>
-                        <RadioButton type="client" value="의뢰인" isSelected={selectedRadio.clientSelected}/>
-                        <RadioButton type="individual" value="번역가" isSelected={selectedRadio.individualSelected} />
+                        <RadioButton type="company" value={t("company")} isSelected={selectedRadio.companySelected}/>
+                        <RadioButton type="client" value={t("client")} isSelected={selectedRadio.clientSelected}/>
+                        <RadioButton type="individual" value={t("individual")} isSelected={selectedRadio.individualSelected} />
                     </RadioGroup>
                 </FormControl>
-                <TextInputSection onChange={handleTextInput} />
+                <TextInputSection onChange={handleTextInput} t={t} />
+                
                 <section className="selectInputSection">
                     <FormControl 
                         className="currencySelect" 
                         variant="outlined" 
                         >
-                        <InputLabel>화폐단위를 선택하세요.</InputLabel>
+                        <InputLabel>{t("inputs.currency")}</InputLabel>
                         <Select
                             className="inputSelect"
                             displayEmpty
-                            label="화폐단위를 선택하세요."
+                            label={t("inputs.currency")}
                             defaultValue="krw"
                             onChange={selectCurrency} 
                         >
-                            <MenuItem value="krw">대한민국 원(₩)</MenuItem>
-                            <MenuItem value="usd">미국 달러($)</MenuItem>
+                            <MenuItem value="krw">{t("krw")}</MenuItem>
+                            <MenuItem value="usd">{t("usd")}</MenuItem>
                         </Select>
                     </FormControl>
-                    <FoundedYearSelect onChange={selectFoundedYear}/>
+                    <div className="mandatoryField">{t("errors.mandatory")}</div>
+                    <FoundedYearSelect onChange={selectFoundedYear} t={t}/>
+                    <div className="mandatoryField">{t("errors.mandatory")}</div>
                 </section>
+
                 <section className="buttonSection">
-                    <CustomButton className="nextButton" onClick={handleNextButtonClicked}>다음</CustomButton>
-                    <a className="loginLink">로그인</a>
+                    <CustomButton className="nextButton" onClick={handleNextButtonClicked}>{t("buttons.next")}</CustomButton>
+                    <a className="loginLink">{t("buttons.login")}</a>
                 </section>
+
             </form>
             <Select
                 className="languageSelect"
                 displayEmpty
                 defaultValue="kor"
             >
-                <MenuItem value="kor">한국어</MenuItem>
-                <MenuItem value="eng">영어</MenuItem>
+                <MenuItem value="kor" onClick={()=>{ i18n.changeLanguage("ko-KR")}}>한국어</MenuItem>
+                <MenuItem value="eng" onClick={()=>{ i18n.changeLanguage("en-US")}}>English</MenuItem>
             </Select>
         </div>
     );
@@ -150,4 +156,4 @@ const RegisterForm = () => {
 }
 
 
-export default RegisterForm;
+export default withTranslation()(RegisterForm);

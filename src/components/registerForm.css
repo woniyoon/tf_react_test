@@ -90,15 +90,13 @@
     height: 55px;
 }
 
-.currencySelect::after, .foundedYearSelect::after {
-    position: static;
+.mandatoryField {
     height: 42px;
     padding: 0 0 0 6px;
     font-family: "AppleSDGothicNeo-Regular";
     font-size: 12px;
     line-height: 35px;
     color: #ff0000;
-    content: "필수 입력사항입니다.";
 }
 
 .buttonSection {

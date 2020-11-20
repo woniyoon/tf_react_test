@@ -15,15 +15,16 @@ const generateYears = () => {
 }
 
 const FoundedYearSelect = (props) => {
+    const { onChange, t } = props;
 
     return (
         <FormControl className="foundedYearSelect" variant="outlined" >
-            <InputLabel>설립일을 선택하세요.</InputLabel>
+            <InputLabel>{t("inputs.foundedYear")}</InputLabel>
             <Select
                 className="inputSelect"
                 displayEmpty
-                label="설립일을 선택하세요."
-                onChange={props.onChange}
+                label={t("inputs.foundedYear")}
+                onChange={onChange}
                 defaultValue={currentYear}
             >
                 {generateYears()}

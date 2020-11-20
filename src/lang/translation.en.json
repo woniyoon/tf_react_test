@@ -1,0 +1,22 @@
+{
+    "formTitle": "Sign Up for Gconstudio",
+    "formDetail": "All service is available with a single time sign-up!",
+    "company": "company",
+    "client": "client",
+    "individual": "translator",
+    "inputs.title": "your information",
+    "inputs.email": "enter your email!",
+    "inputs.password": "enter your password!",
+    "inputs.company": "enter your company name!",
+    "inputs.currency": "select the currency",
+    "inputs.foundedYear": "select the founded year of your company",
+    "buttons.next": "next",
+    "buttons.login": "login",
+    "errors.email": "enter the valid email address!",
+    "errors.password": "password should be at least 8 characters with number and symbols!",
+    "errors.company": "enter a valid company name!",
+    "errors.mandatory": "this field is mandatory",
+    "emptyAlert": "Please fill out every field!",
+    "krw": "South Korea Won(₩)",
+    "usd": "US Dollar($)"
+}
