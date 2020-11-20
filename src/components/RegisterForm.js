@@ -85,7 +85,7 @@ const RegisterForm = () => {
                     </FormControl>
                     <FoundedYearSelect onChange={selectFoundedYear}/>
                 </section>
-                <section>
+                <section className="btnSection">
                     <CustomButton className="nextBtn" onClick={printResult}>다음</CustomButton>
                     <a className="loginLink">로그인</a>
                 </section>
