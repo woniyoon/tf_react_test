@@ -92,7 +92,7 @@ const RegisterForm = () => {
         <div className="registerPage">
             <form className="registerForm">
                 <p className="formTitle">Gconstudio 계정 만들기</p>
-                <p className="formDescription">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
+                <p className="formDetail">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
                 <FormControl component="fieldset" >
                     <RadioGroup row className="memberType" name="memberType" value={memberType} onChange={handleMemberTypeChange} >
                         <RadioButton type="company" value="번역회사" isSelected={selectedRadio.companySelected}/>

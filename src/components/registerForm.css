@@ -27,11 +27,7 @@
     margin: 0;
 }
 
-.textInputSection {
-    margin-top: 21.5px;
-}
-
-.formDescription {
+.formDetail {
     font-family: Arial;
     font-size: 16px;
     font-weight: normal;
@@ -40,27 +36,6 @@
     line-height: normal;
     letter-spacing: normal;
     margin: 12px 0 29px 0;
-}
-
-.inputsLabel {
-    margin-bottom: 10px;
-    font-family: "NotoSansCJKkr-Regular";
-    font-weight: normal;
-    font-size: 12px;
-}
-
-.inputDescription {
-    height: 42px;
-    padding: 0 0 0 6px;
-    font-family: "AppleSDGothicNeo-Regular";
-    font-size: 12px;
-    line-height: 35px;
-    color: #ff0000;
-}
-
-.inputText, .inputSelect {
-    width: 440px;
-    height: 55px;
 }
 
 .memberType {
@@ -90,6 +65,31 @@
     font-weight: bold;
 }
 
+.textInputSection {
+    margin-top: 21.5px;
+}
+
+.inputsTitle {
+    margin-bottom: 10px;
+    font-family: "NotoSansCJKkr-Regular";
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.invalidInputWarning {
+    height: 42px;
+    padding: 0 0 0 6px;
+    font-family: "AppleSDGothicNeo-Regular";
+    font-size: 12px;
+    line-height: 35px;
+    color: #ff0000;
+}
+
+.inputText, .inputSelect {
+    width: 440px;
+    height: 55px;
+}
+
 .currencySelect::after, .foundedYearSelect::after {
     position: static;
     height: 42px;
@@ -101,11 +101,11 @@
     content: "필수 입력사항입니다.";
 }
 
-.btnSection {
+.buttonSection {
     margin-top: 5px;
 }
 
-.nextBtn {
+.nextButton {
     width: 91px;
     height: 37px;
 }
