@@ -79,8 +79,13 @@ const RegisterForm = () => {
     } 
 
     const handleNextButtonClicked = () => {
-        console.log(currency);
-        console.log("next button clicked!");
+
+        if(email.trim() !== "" && password.trim() !== "" && companyName.trim() !== "") {
+            console.log("next button clicked!");
+        } else {
+            alert("모두 기입해주세요.");
+        }
+
     }
 
 
