@@ -89,6 +89,12 @@
     font-weight: bold;
 }
 
+.currencySelect::after, .foundedYearSelect::after {
+    position: static;
+    height: 40px;
+    content: "";
+}
+
 .nextBtn {
     width: 91px;
     height: 37px;
