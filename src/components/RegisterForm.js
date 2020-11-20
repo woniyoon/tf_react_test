@@ -6,6 +6,7 @@ import CustomRadio from "./CustomRadio";
 import CustomButton from "./CustomButton";
 import FoundedYearSelect from "./FoundedYearSelect";
 import TextInputSection from "./TextInputSection";
+import RadioButton from "./RadioButton";
 
 const RegisterForm = () => {
     const [memberType, setMemberType] = useState("company");
@@ -13,9 +14,43 @@ const RegisterForm = () => {
     const [password, setPassword] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [foundedYear, setFoundedYear] = useState(2020);
+    const [selectedRadio, setSelectedRadio] = useState({
+        companySelected: true,
+        clientSelected: false,
+        individualSelected: false,
+    });
+
 
     const handleMemberTypeChange = (event) => {
-        setMemberType(event.target.value);
+        const { value } = event.target; 
+
+        setMemberType(value);
+        
+        switch (value) {
+            case "company":
+                setSelectedRadio({
+                    companySelected: true,
+                    clientSelected: false,
+                    individualSelected: false,
+                });
+                break;
+
+                case "client":
+                setSelectedRadio({
+                    companySelected: false,
+                    clientSelected: true,
+                    individualSelected: false,
+                });
+                break;
+
+            case "individual":
+                setSelectedRadio({
+                    companySelected: false,
+                    clientSelected: false,
+                    individualSelected: true,
+                });
+                break;
+        }
     }
 
     const handleTextInput = (event) => {
@@ -38,10 +73,8 @@ const RegisterForm = () => {
         setFoundedYear(event.target.value);
     } 
 
-    const printResult = () => {
-        console.log(email);
-        console.log(password);
-        console.log(companyName);
+    const handleNextButtonClicked = () => {
+        console.log("next button clicked!");
     }
 
 
@@ -52,21 +85,9 @@ const RegisterForm = () => {
                 <p className="formDescription">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
                 <FormControl component="fieldset" >
                     <RadioGroup row className="memberType" name="memberType" value={memberType} onChange={handleMemberTypeChange} >
-                        <FormControlLabel 
-                            value="company" 
-                            control={<CustomRadio id="company" /> } 
-                        />
-                        <label htmlFor="company" className="typeOption">번역회사</label>
-                        <FormControlLabel 
-                            value="client" 
-                            control={<CustomRadio id="client" />} 
-                        />
-                        <label htmlFor="client" className="typeOption">의뢰인</label>
-                        <FormControlLabel 
-                            value="individual" 
-                            control={<CustomRadio id="individual" />} 
-                        />
-                        <label htmlFor="individual" className="typeOption">번역가</label>
+                        <RadioButton type="company" value="번역회사" isSelected={selectedRadio.companySelected}/>
+                        <RadioButton type="client" value="의뢰인" isSelected={selectedRadio.clientSelected}/>
+                        <RadioButton type="individual" value="번역가" isSelected={selectedRadio.individualSelected} />
                     </RadioGroup>
                 </FormControl>
                 <TextInputSection onChange={handleTextInput} />
@@ -85,8 +106,8 @@ const RegisterForm = () => {
                     </FormControl>
                     <FoundedYearSelect onChange={selectFoundedYear}/>
                 </section>
-                <section className="btnSection">
-                    <CustomButton className="nextBtn" onClick={printResult}>다음</CustomButton>
+                <section className="buttonSection">
+                    <CustomButton className="nextButton" onClick={handleNextButtonClicked}>다음</CustomButton>
                     <a className="loginLink">로그인</a>
                 </section>
             </form>
