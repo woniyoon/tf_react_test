@@ -50,7 +50,6 @@ const RegisterForm = () => {
             <form className="registerForm">
                 <p className="formTitle">Gconstudio 계정 만들기</p>
                 <p className="formDescription">하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</p>
-                
                 <FormControl component="fieldset" >
                     <RadioGroup row className="memberType" name="memberType" value={memberType} onChange={handleMemberTypeChange} >
                         <FormControlLabel 
@@ -72,7 +71,7 @@ const RegisterForm = () => {
                 </FormControl>
                 <TextInputSection onChange={handleTextInput} />
                 <section className="selectInputSection">
-                    <FormControl variant="outlined" >
+                    <FormControl className="currencySelect" variant="outlined" >
                         <InputLabel>화폐단위를 선택하세요.</InputLabel>
                         <Select
                             className="inputSelect"
@@ -84,10 +83,7 @@ const RegisterForm = () => {
                             <MenuItem value="usd">미국 달러($)</MenuItem>
                         </Select>
                     </FormControl>
-                    <p className="inputDescription">필수 입력사항입니다.</p>
-                
                     <FoundedYearSelect onChange={selectFoundedYear}/>
-                    <p className="inputDescription">필수 입력사항입니다.</p>
                 </section>
                 <section>
                     <CustomButton className="nextBtn" onClick={printResult}>다음</CustomButton>
@@ -97,7 +93,6 @@ const RegisterForm = () => {
             <Select
                 className="languageSelect"
                 displayEmpty
-                // inputProps={{ 'aria-label': 'Without label' }}
                 defaultValue="kor"
             >
                 <MenuItem value="kor">한국어</MenuItem>
