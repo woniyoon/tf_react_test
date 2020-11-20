@@ -47,7 +47,7 @@ const TextInputSection = (props) => {
 
     return (
         <section className="textInputSection">
-            <p className="inputsLabel">기본정보 입력</p>
+            <div className="inputsLabel">기본정보 입력</div>
             <TextField 
                 className="inputText" 
                 id="email"
@@ -58,7 +58,7 @@ const TextInputSection = (props) => {
                 error={!isEmailValid}
                 onBlur={e => validateEmail(e)}
                 />
-            <p className="inputDescription">{ isEmailValid ? null : "이메일 양식을 확인하세요" } </p>
+            <div className="inputDescription">{ isEmailValid ? null : "이메일 양식을 확인하세요" } </div>
             <TextField 
                 className="inputText" 
                 id="password"
@@ -69,7 +69,7 @@ const TextInputSection = (props) => {
                 error={!isPasswordValid}
                 onBlur={e => validatePassword(e)}
                 />
-            <p className="inputDescription">{ isPasswordValid ? null : "비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다" } </p>
+            <div className="inputDescription">{ isPasswordValid ? null : "비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다" } </div>
             <TextField 
                 className="inputText" 
                 id="companyName"
@@ -77,7 +77,7 @@ const TextInputSection = (props) => {
                 variant="outlined" 
                 onBlur={e => checkName(e)}
             />
-            <p className="inputDescription">{ isFilledOut ? null : "유효한 회사명을 입력해주세요" } </p>
+            <div className="inputDescription">{ isFilledOut ? null : "유효한 회사명을 입력해주세요" } </div>
         </section>
     );
 }

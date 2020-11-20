@@ -49,10 +49,12 @@
 }
 
 .inputDescription {
-    color: #ff0000;
+    height: 40px;
+    padding: 0 0 0 6px;
+    font-family: AppleSDGothicNeo-Regular;
     font-size: 12px;
-    margin: 6px 0 24px 0;
-    height: 10px;
+    line-height: 35px;
+    color: #ff0000;
 }
 
 .inputText, .inputSelect {
